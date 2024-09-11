@@ -1,5 +1,5 @@
+import { Box, Center, NativeBaseProvider, Text } from 'native-base';
 import React from 'react';
-import { NativeBaseProvider, Box, Text, Center } from 'native-base';
 
 export default function App() {
   return (
