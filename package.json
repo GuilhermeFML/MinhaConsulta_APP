@@ -17,6 +17,7 @@
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
     "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.2",
     "native-base": "^3.4.28",
     "normalize-css-color": "^1.0.2",
     "npx": "^10.2.2",

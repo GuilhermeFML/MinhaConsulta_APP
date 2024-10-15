@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
 
 interface Consultation {
@@ -15,14 +15,22 @@ const ConsultationsListScreen = () => {
   const [consultations, setConsultations] = useState<Consultation[]>([]);
 
   useEffect(() => {
-    // Fetch consultations from the backend
-    axios.get('http://localhost:3000/api/consultations')
-      .then((response) => {
+    const fetchConsultations = async () => {
+      try {
+        const userId = '2'; // Substitua pela lógica para obter o userId (ex: AsyncStorage)
+        const role = 'user'; // Ou 'admin', dependendo do teste
+        
+        const response = await axios.get('http://10.0.2.2:3000/api/consultations', {
+          headers: { userId, role }, // Enviando as informações do usuário
+        });
         setConsultations(response.data.consultations);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Erro ao buscar consultas:', error);
-      });
+        Alert.alert('Erro', 'Não foi possível carregar as consultas.');
+      }
+    };
+
+    fetchConsultations();
   }, []);
 
   const renderItem = ({ item }: { item: Consultation }) => (

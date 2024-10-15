@@ -1,29 +1,29 @@
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Box, Button, Center, NativeBaseProvider } from 'native-base';
 import React from 'react';
+import { NativeBaseProvider, Box, Button, Center } from 'native-base';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/AppNavigator'; // Certifique-se de importar isso
 
 type WelcomeScreenNavigationProp = NativeStackNavigationProp<
-    RootStackParamList,
-    'Welcome'
+  RootStackParamList,
+  'Welcome'
 >;
 
 type Props = {
-    navigation: WelcomeScreenNavigationProp;
+  navigation: WelcomeScreenNavigationProp;
 };
 
 const WelcomeScreen = ({ navigation }: Props) => {
-    return (
-        <NativeBaseProvider>
-            <Center flex={1} bg="white">
-                <Box>
-                    <Button onPress={() => navigation.navigate('Login')}>
-                        Ir para Login
-                    </Button>
-                </Box>
-            </Center>
-        </NativeBaseProvider>
-    );
+  return (
+    <NativeBaseProvider>
+      <Center flex={1} bg="white">
+        <Box>
+          <Button onPress={() => navigation.navigate('Login')}>
+            Ir para Login
+          </Button>
+        </Box>
+      </Center>
+    </NativeBaseProvider>
+  );
 };
 
 export default WelcomeScreen;
