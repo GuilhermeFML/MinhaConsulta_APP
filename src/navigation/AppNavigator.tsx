@@ -6,6 +6,7 @@ import SignUpScreen from '../screens/SignUpScreen';
 import ConsultationsListScreen from '../screens/ConsultationsListScreen';
 import ScheduleConsultationScreen from '../screens/ScheduleConsultationScreen';
 import ConfirmAppointmentScreen from '../screens/ConfirmAppointmentScreen';
+import NewConsultationScreen from '../screens/NewConsultationScreen'; // Importando a nova tela
 
 export type RootStackParamList = {
   Welcome: undefined;
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   ConsultationsList: undefined;
   ScheduleConsultation: undefined;
   ConfirmAppointment: undefined;
+  NewConsultation: undefined; // Adicionando a nova rota
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -50,6 +52,11 @@ const AppNavigator = () => {
         name="ConfirmAppointment" 
         component={ConfirmAppointmentScreen} 
         options={{ title: 'Confirmação de Agendamento' }} 
+      />
+      <Stack.Screen 
+        name="NewConsultation" // Nova rota para a tela de agendamento
+        component={NewConsultationScreen} 
+        options={{ title: 'Nova Consulta' }} 
       />
     </Stack.Navigator>
   );
