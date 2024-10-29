@@ -9,7 +9,7 @@ const NewConsultationScreen = ({ navigation, route }: { navigation: any, route: 
   const [status, setStatus] = useState('');
 
   const handleSubmit = () => {
-    // Criação do objeto de dados da consulta
+    
     const consultationData = {
       patientName,
       consultationDate,
@@ -20,16 +20,16 @@ const NewConsultationScreen = ({ navigation, route }: { navigation: any, route: 
 
     console.log(consultationData);
     
-    // Chamada ao backend para salvar os dados pode ser feita aqui
+   
 
-    // Adicionar a consulta à lista na tela anterior (opcional)
-    const { addConsultation } = route.params; // Pega a função para adicionar a consulta
+    
+    const { addConsultation } = route.params; 
 
     if (addConsultation) {
-      addConsultation({ ...consultationData, id: Math.random() }); // Gerando um ID aleatório para exemplo
+      addConsultation({ ...consultationData, id: Math.random() }); 
     }
 
-    // Navegar de volta para a tela de consultas
+   
     navigation.navigate('ConsultationsList');
   };
 

@@ -8,12 +8,12 @@ interface Consultation {
   doctor: string;
   specialty: string;
   status: string;
-  username: string;
+  username: string; // Nome do paciente
 }
 
 const ConsultationsListScreen = ({ navigation }: { navigation: any }) => {
   const [consultations, setConsultations] = useState<Consultation[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Estado de carregamento
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetchConsultations();
@@ -21,18 +21,18 @@ const ConsultationsListScreen = ({ navigation }: { navigation: any }) => {
 
   const fetchConsultations = async () => {
     try {
-      const userId = '2'; // Substitua pela lógica para obter o userId (ex: AsyncStorage)
-      const role = 'user'; // Ou 'admin', dependendo do teste
+      const userId = '2';
+      const role = 'user';
       
       const response = await axios.get('http://10.0.2.2:3000/api/consultations', {
-        headers: { userId, role }, // Enviando as informações do usuário
+        headers: { userId, role },
       });
       setConsultations(response.data.consultations);
     } catch (error) {
       console.error('Erro ao buscar consultas:', error);
       Alert.alert('Erro', 'Não foi possível carregar as consultas.');
     } finally {
-      setLoading(false); // Sempre desabilitar o carregamento ao final
+      setLoading(false);
     }
   };
 
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     backgroundColor: '#f9f9f9',
     borderRadius: 8,
-    elevation: 2, // Para adicionar sombra no Android
+    elevation: 2,
   },
   title: {
     fontWeight: 'bold',
